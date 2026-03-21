@@ -18,7 +18,6 @@
             overflow-x: hidden;
         }
         
-        /* Floating emojis */
         .emoji-bg {
             position: fixed;
             width: 100%;
@@ -30,7 +29,7 @@
         
         .floating {
             position: absolute;
-            font-size: 40px;
+            font-size: 35px;
             animation: fall linear infinite;
             opacity: 0.8;
         }
@@ -40,7 +39,6 @@
             100% { transform: translateY(100vh) rotate(360deg); }
         }
         
-        /* Main content */
         .container {
             position: relative;
             z-index: 10;
@@ -50,97 +48,134 @@
             text-align: center;
         }
         
-        /* Card */
         .card {
             background: white;
             border-radius: 30px;
-            padding: 40px;
+            padding: 35px;
             box-shadow: 0 20px 60px rgba(0,0,0,0.15);
             margin-bottom: 25px;
         }
         
         h1 {
-            font-size: 50px;
+            font-size: 45px;
             color: #e91e63;
             margin-bottom: 15px;
         }
         
         .name {
-            font-size: 70px;
+            font-size: 65px;
             color: #e91e63;
             font-weight: bold;
-            margin: 20px 0;
-            text-shadow: 3px 3px 6px rgba(0,0,0,0.15);
+            margin: 15px 0;
         }
         
         .cake {
-            font-size: 100px;
-            margin: 15px 0;
+            font-size: 90px;
+            margin: 10px 0;
             animation: bounce 1.5s infinite;
             cursor: pointer;
         }
         
         @keyframes bounce {
             0%, 100% { transform: translateY(0) scale(1); }
-            50% { transform: translateY(-20px) scale(1.1); }
-        }
-        
-        .cake:hover {
-            animation: shake 0.5s infinite;
-        }
-        
-        @keyframes shake {
-            0%, 100% { transform: rotate(-5deg); }
-            50% { transform: rotate(5deg); }
+            50% { transform: translateY(-15px) scale(1.05); }
         }
         
         .message {
-            font-size: 22px;
+            font-size: 20px;
             color: #555;
-            line-height: 1.7;
-            margin: 20px 0;
-        }
-        
-        .from {
-            font-size: 26px;
-            color: #e91e63;
-            margin-top: 30px;
-            font-weight: bold;
-        }
-        
-        /* Balloons */
-        .balloons {
-            font-size: 60px;
+            line-height: 1.6;
             margin: 15px 0;
         }
         
-        /* Click to blow candle */
-        .candle-area {
-            position: relative;
-            display: inline-block;
+        .from {
+            font-size: 24px;
+            color: #e91e63;
+            margin-top: 25px;
+            font-weight: bold;
         }
         
-        .candle {
-            font-size: 30px;
-            position: absolute;
-            top: -30px;
-            left: 50%;
-            transform: translateX(-50%);
+        .balloons {
+            font-size: 50px;
+            margin: 10px 0;
+        }
+        
+        /* Game Section */
+        .game-section {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 25px;
+            padding: 30px;
+            margin: 20px 0;
+            color: white;
+        }
+        
+        .game-section h2 {
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+        
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .game-btn {
+            background: white;
+            color: #667eea;
+            border: none;
+            padding: 20px 15px;
+            border-radius: 15px;
             cursor: pointer;
-            animation: flicker 0.3s infinite alternate;
+            font-size: 40px;
+            transition: transform 0.3s;
         }
         
-        @keyframes flicker {
-            0% { opacity: 0.8; transform: translateX(-50%) scale(1); }
-            100% { opacity: 1; transform: translateX(-50%) scale(1.1); }
+        .game-btn:hover {
+            transform: scale(1.1);
         }
         
-        .flame {
+        .game-btn p {
+            font-size: 14px;
+            margin-top: 8px;
+            color: #333;
+        }
+        
+        /* Game Frames */
+        .game-frame {
             display: none;
+            background: #1a1a2e;
+            border-radius: 20px;
+            padding: 15px;
+            margin: 15px 0;
         }
         
-        .flame.on {
+        .game-frame.active {
             display: block;
+        }
+        
+        .game-frame canvas {
+            border-radius: 10px;
+            max-width: 100%;
+            background: #0f0f23;
+        }
+        
+        .close-btn {
+            background: #e91e63;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            cursor: pointer;
+            margin-top: 15px;
+            font-size: 16px;
+        }
+        
+        .score-display {
+            font-size: 24px;
+            color: white;
+            margin: 10px 0;
         }
         
         /* Wish button */
@@ -148,23 +183,17 @@
             background: linear-gradient(135deg, #e91e63, #ff5722);
             color: white;
             border: none;
-            padding: 18px 45px;
-            font-size: 22px;
+            padding: 15px 40px;
+            font-size: 20px;
             border-radius: 50px;
             cursor: pointer;
-            margin: 20px;
+            margin: 15px;
             box-shadow: 0 10px 30px rgba(233, 30, 99, 0.4);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        
-        .wish-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 15px 40px rgba(233, 30, 99, 0.5);
         }
         
         .wishes {
             display: none;
-            margin-top: 20px;
+            margin-top: 15px;
         }
         
         .wishes.show {
@@ -179,102 +208,16 @@
         }
         
         .wish {
-            font-size: 24px;
+            font-size: 18px;
             color: #e91e63;
-            margin: 10px 0;
-            padding: 10px;
+            margin: 8px 0;
+            padding: 8px;
             background: #fff5f8;
-            border-radius: 15px;
-        }
-        
-        /* Photo gallery with fun frames */
-        .photos {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
-            margin: 25px 0;
-        }
-        
-        .photo-frame {
-            background: white;
-            border-radius: 20px;
-            padding: 10px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-        
-        .photo-frame:hover {
-            transform: rotate(3deg) scale(1.05);
-        }
-        
-        .photo-placeholder {
-            width: 100%;
-            height: 150px;
-            background: linear-gradient(135deg, #ffeaa7, #fdcb6e);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 40px;
-            cursor: pointer;
-        }
-        
-        .photo-label {
-            margin-top: 8px;
-            color: #666;
-            font-size: 13px;
-        }
-        
-        /* Game section */
-        .game-card {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            border-radius: 20px;
-            padding: 25px;
-            margin: 15px 0;
-            color: white;
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
-        
-        .game-card:hover {
-            transform: scale(1.02);
-        }
-        
-        .game-card h3 {
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
-        
-        /* Mini game */
-        .game-area {
-            display: none;
-            background: #1a1a2e;
-            border-radius: 20px;
-            padding: 20px;
-            margin: 20px 0;
-        }
-        
-        .game-area.show {
-            display: block;
-        }
-        
-        .game-area canvas {
             border-radius: 10px;
-            max-width: 100%;
-        }
-        
-        .close-game {
-            background: #e91e63;
-            color: white;
-            border: none;
-            padding: 10px 25px;
-            border-radius: 20px;
-            cursor: pointer;
-            margin-top: 10px;
         }
         
         footer {
-            margin-top: 30px;
+            margin-top: 25px;
             color: #666;
             font-size: 14px;
         }
@@ -285,75 +228,82 @@
     <div class="emoji-bg" id="emojiBg"></div>
     
     <div class="container">
-        <!-- Main birthday card -->
+        <!-- Main card -->
         <div class="card">
             <h1>🎉 Happy Birthday! 🎉</h1>
             <div class="name">丁惠</div>
-            
-            <div class="candle-area">
-                <div class="cake" onclick="blowCandle()">🎂</div>
-                <div class="candle" id="candle">
-                    <span class="flame on" id="flame">🕯️</span>
-                </div>
-            </div>
-            
+            <div class="cake" onclick="blowCandle()">🎂</div>
             <p class="message">
                 祝您生日快乐！<br>
-                愿您每天都开心快乐！<br>
-                愿您心想事成！健康幸福！
+                愿您每天都开心快乐！心想事成！健康幸福！
             </p>
-            
             <button class="wish-btn" onclick="showWishes()">🎁 点击许愿</button>
-            
             <div class="wishes" id="wishes">
                 <div class="wish">💖 愿您永远年轻！</div>
                 <div class="wish">💰 愿您财源滚滚！</div>
                 <div class="wish">🏥 愿您身体健康！</div>
                 <div class="wish">🎉 愿您天天开心！</div>
-                <div class="wish">👨‍👩‍👦 愿我们一家幸福！</div>
             </div>
-            
             <div class="balloons">🎈🎉🎈</div>
         </div>
         
-        <!-- Photo section -->
-        <div class="card">
-            <h2>📸 美好回忆</h2>
-            <div class="photos">
-                <div class="photo-frame">
-                    <div class="photo-placeholder">📷</div>
-                    <div class="photo-label">点击添加</div>
-                </div>
-                <div class="photo-frame">
-                    <div class="photo-placeholder">📷</div>
-                    <div class="photo-label">点击添加</div>
-                </div>
-                <div class="photo-frame">
-                    <div class="photo-placeholder">📷</div>
-                    <div class="photo-label">点击添加</div>
-                </div>
-                <div class="photo-frame">
-                    <div class="photo-placeholder">📷</div>
-                    <div class="photo-label">点击添加</div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Fun game -->
-        <div class="card">
-            <h2>🎮 来玩游戏吧!</h2>
-            <div class="game-card" onclick="startGame()">
-                <h3>🧁 戳蛋糕游戏</h3>
-                <p>点击蛋糕得分!</p>
+        <!-- Games Section -->
+        <div class="game-section">
+            <h2>🎮 玩游戏吧!</h2>
+            <div class="games-grid">
+                <button class="game-btn" onclick="openGame('snake')">
+                    🐍
+                    <p>贪吃蛇</p>
+                </button>
+                <button class="game-btn" onclick="openGame('pong')">
+                    🏓
+                    <p>乒乓球</p>
+                </button>
+                <button class="game-btn" onclick="openGame('breakout')">
+                    🧱
+                    <p>打砖块</p>
+                </button>
+                <button class="game-btn" onclick="openGame('racing')">
+                    🏎️
+                    <p>赛车</p>
+                </button>
             </div>
             
-            <div class="game-area" id="gameArea">
-                <canvas id="gameCanvas" width="350" height="350"></canvas>
-                <br>
-                <button class="close-game" onclick="stopGame()">结束游戏</button>
+            <!-- Snake Game -->
+            <div class="game-frame" id="snakeGame">
+                <h3>🐍 贪吃蛇</h3>
+                <p>用方向键控制!</p>
+                <canvas id="snakeCanvas" width="350" height="350"></canvas>
+                <p class="score-display">分数: <span id="snakeScore">0</span></p>
+                <button class="close-btn" onclick="closeGame('snake')">结束游戏</button>
             </div>
             
-            <p>分数: <span id="score">0</span></p>
+            <!-- Pong Game -->
+            <div class="game-frame" id="pongGame">
+                <h3>🏓 乒乓球</h3>
+                <p>W/S 控制上方, 方向键控制下方</p>
+                <canvas id="pongCanvas" width="350" height="250"></canvas>
+                <p class="score-display">分数: <span id="pongScore1">0</span> - <span id="pongScore2">0</span></p>
+                <button class="close-btn" onclick="closeGame('pong')">结束游戏</button>
+            </div>
+            
+            <!-- Breakout Game -->
+            <div class="game-frame" id="breakoutGame">
+                <h3>🧱 打砖块</h3>
+                <p>鼠标控制挡板!</p>
+                <canvas id="breakoutCanvas" width="350" height="300"></canvas>
+                <p class="score-display">分数: <span id="breakoutScore">0</span></p>
+                <button class="close-btn" onclick="closeGame('breakout')">结束游戏</button>
+            </div>
+            
+            <!-- Racing Game -->
+            <div class="game-frame" id="racingGame">
+                <h3>🏎️ 赛车</h3>
+                <p>鼠标控制左右!</p>
+                <canvas id="racingCanvas" width="300" height="400"></canvas>
+                <p class="score-display">分数: <span id="racingScore">0</span></p>
+                <button class="close-btn" onclick="closeGame('racing')">结束游戏</button>
+            </div>
         </div>
         
         <!-- Message -->
@@ -372,100 +322,226 @@
     
     <script>
         // Floating emojis
-        const emojis = ['❤️', '💕', '💖', '💗', '🎉', '🎈', '🌟', '⭐', '💫', '🎊'];
+        const emojis = ['❤️', '💕', '💖', '💗', '🎉', '🎈', '🌟', '⭐'];
         const emojiBg = document.getElementById('emojiBg');
         
-        for(let i = 0; i < 30; i++) {
+        for(let i = 0; i < 25; i++) {
             const emoji = document.createElement('div');
             emoji.className = 'floating';
             emoji.innerText = emojis[Math.floor(Math.random() * emojis.length)];
             emoji.style.left = Math.random() * 100 + '%';
-            emoji.style.animationDuration = (Math.random() * 3 + 3) + 's';
+            emoji.style.animationDuration = (Math.random() * 3 + 4) + 's';
             emoji.style.animationDelay = Math.random() * 5 + 's';
             emojiBg.appendChild(emoji);
         }
         
-        // Blow candle
-        let candleBlown = false;
-        function blowCandle() {
-            if(!candleBlown) {
-                document.getElementById('flame').classList.remove('on');
-                candleBlown = true;
-                alert('🎉 许个愿吧！🎉');
-            }
-        }
-        
-        // Show wishes
+        // Wishes
         function showWishes() {
-            document.getElementById('wishes').classList.add('show');
+            document.getElementById('wishes').classList.toggle('show');
         }
         
-        // Cake click game
-        let gameRunning = false;
-        let score = 0;
-        let cake = {x: 175, y: 175};
-        let clicks = [];
-        
-        function startGame() {
-            document.getElementById('gameArea').classList.add('show');
-            gameRunning = true;
-            score = 0;
-            document.getElementById('score').innerText = '0';
-            gameLoop();
+        function blowCandle() {
+            alert('🎉 许个愿吧！🎉');
         }
         
-        function stopGame() {
-            gameRunning = false;
-            document.getElementById('gameArea').classList.remove('show');
+        // Game System
+        let activeGames = {};
+        
+        function openGame(game) {
+            document.querySelectorAll('.game-frame').forEach(g => g.classList.remove('active'));
+            document.getElementById(game + 'Game').classList.add('active');
+            
+            if(game === 'snake' && !activeGames.snake) startSnake();
+            if(game === 'pong' && !activeGames.pong) startPong();
+            if(game === 'breakout' && !activeGames.breakout) startBreakout();
+            if(game === 'racing' && !activeGames.racing) startRacing();
         }
         
-        const canvas = document.getElementById('gameCanvas');
-        const ctx = canvas.getContext('2d');
-        
-        function gameLoop() {
-            if(!gameRunning) return;
-            
-            // Background
-            ctx.fillStyle = '#1a1a2e';
-            ctx.fillRect(0, 0, 350, 350);
-            
-            // Draw cake
-            ctx.font = '50px Arial';
-            ctx.fillText('🧁', cake.x - 25, cake.y + 20);
-            
-            // Draw clicks
-            ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
-            clicks.forEach(c => {
-                ctx.beginPath();
-                ctx.arc(c.x, c.y, c.size, 0, Math.PI * 2);
-                ctx.fill();
-                c.size -= 1;
-            });
-            clicks = clicks.filter(c => c.size > 0);
-            
-            requestAnimationFrame(gameLoop);
+        function closeGame(game) {
+            document.getElementById(game + 'Game').classList.remove('active');
+            activeGames[game] = false;
         }
         
-        canvas.addEventListener('click', function(e) {
-            if(!gameRunning) return;
+        // Snake Game
+        let snakeRunning = false;
+        function startSnake() {
+            snakeRunning = true;
+            activeGames.snake = true;
+            const canvas = document.getElementById('snakeCanvas');
+            const ctx = canvas.getContext('2d');
+            let snake = [{x:175,y:175},{x:160,y:175},{x:145,y:175}];
+            let appleX = 100, appleY = 100;
+            let dx = 15, dy = 0;
+            let score = 0;
             
-            const rect = canvas.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            
-            // Check if clicked on cake
-            let dx = x - cake.x;
-            let dy = y - cake.y;
-            if(Math.sqrt(dx*dx + dy*dy) < 40) {
-                score += 10;
-                document.getElementById('score').innerText = score;
-                cake.x = Math.random() * 300 + 25;
-                cake.y = Math.random() * 300 + 25;
+            document.onkeydown = e => {
+                if(e.keyCode==37 && dx==0) {dx=-15;dy=0;}
+                if(e.keyCode==39 && dx==0) {dx=15;dy=0;}
+                if(e.keyCode==38 && dy==0) {dx=0;dy=-15;}
+                if(e.keyCode==40 && dy==0) {dx=0;dy=15;}
             }
             
-            // Click effect
-            clicks.push({x: x, y: y, size: 20});
-        });
+            function draw() {
+                if(!snakeRunning) return;
+                
+                ctx.fillStyle = '#0f0f23';
+                ctx.fillRect(0,0,350,350);
+                
+                // Apple
+                ctx.fillStyle = 'red';
+                ctx.fillRect(appleX,appleY,13,13);
+                
+                // Snake
+                ctx.fillStyle = '#00ff00';
+                snake.forEach(s => ctx.fillRect(s.x,s.y,13,13));
+                
+                let head = {x:snake[0].x+dx,y:snake[0].y+dy};
+                if(head.x<0) head.x=335; if(head.x>335) head.x=0;
+                if(head.y<0) head.y=335; if(head.y>335) head.y=0;
+                
+                if(snake.some(s=>s.x==head.x && s.y==head.y)) {
+                    score=0; snake=[{x:175,y:175},{x:160,y:175},{x:145,y:175}]; dx=15;dy=0;
+                }
+                
+                if(head.x==appleX && head.y==appleY) {
+                    score+=10; document.getElementById('snakeScore').innerText=score;
+                    appleX=Math.floor(Math.random()*22)*15; appleY=Math.floor(Math.random()*22)*15;
+                } else snake.pop();
+                
+                snake.unshift(head);
+                setTimeout(draw, 150);
+            }
+            draw();
+        }
+        
+        // Pong Game
+        let pongRunning = false;
+        function startPong() {
+            pongRunning = true;
+            activeGames.pong = true;
+            const canvas = document.getElementById('pongCanvas');
+            const ctx = canvas.getContext('2d');
+            let p1=0, p2=0, py1=100, py2=100, by=125, bx=175, bvx=4, bvy=3;
+            
+            document.onkeydown = e => {
+                if(e.key==='w' && py1>0) py1-=15;
+                if(e.key==='s' && py1<210) py1+=15;
+                if(e.keyCode==38 && py2>0) py2-=15;
+                if(e.keyCode==40 && py2<210) py2+=15;
+            }
+            
+            function draw() {
+                if(!pongRunning) return;
+                
+                ctx.fillStyle='#0f0f23';
+                ctx.fillRect(0,0,350,250);
+                
+                ctx.fillStyle='#fff';
+                ctx.fillRect(10,py1,8,40); ctx.fillRect(332,py2,8,40);
+                ctx.beginPath(); ctx.arc(bx,by,8,0,Math.PI*2); ctx.fill();
+                
+                bx+=bvx; by+=bvy;
+                if(by<0||by>242) bvy=-bvy;
+                if(bx<18 && by>py1 && by<py1+40) bvx=Math.abs(bvx);
+                if(bx>332 && by>py2 && by<py2+40) bvx=-Math.abs(bvx);
+                if(bx<0) {p2++; document.getElementById('pongScore2').innerText=p2; bx=175;by=125;bvx=4;}
+                if(bx>350) {p1++; document.getElementById('pongScore1').innerText=p1; bx=175;by=125;bvx=-4;}
+                
+                requestAnimationFrame(draw);
+            }
+            draw();
+        }
+        
+        // Breakout Game
+        let breakoutRunning = false;
+        function startBreakout() {
+            breakoutRunning = true;
+            activeGames.breakout = true;
+            const canvas = document.getElementById('breakoutCanvas');
+            const ctx = canvas.getContext('2d');
+            let px=140, py=280, bx=175, by=200, bvx=4, bvy=-4, score=0;
+            let bricks=[];
+            for(let r=0;r<4;r++) for(let c=0;c<7;c++) bricks.push({x:c*48+10,y:r*20+30,w:44,h:16});
+            
+            canvas.onmousemove = e => {
+                let r=canvas.getBoundingClientRect();
+                px=e.clientX-r.left-40;
+            }
+            
+            function draw() {
+                if(!breakoutRunning) return;
+                
+                ctx.fillStyle='#0f0f23';
+                ctx.fillRect(0,0,350,300);
+                
+                ctx.fillStyle='#e91e63';
+                bricks.forEach(b => {if(b.active!==false) ctx.fillRect(b.x,b.y,b.w,b.h)});
+                
+                ctx.fillStyle='#fff';
+                ctx.fillRect(px,py,80,10); ctx.beginPath(); ctx.arc(bx,by,8,0,Math.PI*2); ctx.fill();
+                
+                bx+=bvx; by+=bvy;
+                if(by<0) bvy=-bvy;
+                if(bx<0||bx>350) bvx=-bvx;
+                if(by>py-10 && bx>px && bx<px+80) bvy=-Math.abs(bvy);
+                
+                bricks.forEach(b => {
+                    if(b.active!==false && bx>b.x && bx<b.x+b.w && by>b.y && by<b.y+b.h) {
+                        b.active=false; bvy=-bvy; score+=10;
+                        document.getElementById('breakoutScore').innerText=score;
+                    }
+                });
+                
+                if(by>300) {score=0; bx=175;by=200; document.getElementById('breakoutScore').innerText=0;}
+                
+                requestAnimationFrame(draw);
+            }
+            draw();
+        }
+        
+        // Racing Game
+        let racingRunning = false;
+        function startRacing() {
+            racingRunning = true;
+            activeGames.racing = true;
+            const canvas = document.getElementById('racingCanvas');
+            const ctx = canvas.getContext('2d');
+            let carX=130, score=0, speed=5, enemies=[];
+            
+            canvas.onmousemove = e => {
+                let r=canvas.getBoundingClientRect();
+                carX=e.clientX-r.left-20;
+                if(carX<30) carX=30; if(carX>250) carX=250;
+            }
+            
+            function draw() {
+                if(!racingRunning) return;
+                
+                ctx.fillStyle='#333';
+                ctx.fillRect(0,0,300,400);
+                ctx.fillStyle='#27ae60';
+                ctx.fillRect(0,0,25,400); ctx.fillRect(275,0,25,400);
+                
+                ctx.fillStyle='red';
+                enemies.forEach(e => ctx.fillRect(e.x,e.y,30,50));
+                
+                ctx.fillStyle='blue';
+                ctx.fillRect(carX,340,40,60);
+                
+                if(Math.random()<0.03) enemies.push({x:30+Math.random()*215,y:-50});
+                enemies.forEach((e,i) => {
+                    e.y+=speed;
+                    if(e.y>400) {enemies.splice(i,1); score+=10; document.getElementById('racingScore').innerText=score;}
+                    if(carX<e.x+30 && carX+40>e.x && e.y+50>340 && e.y<400) {
+                        alert('游戏结束! 分数: '+score);
+                        enemies=[]; score=0; document.getElementById('racingScore').innerText=0;
+                    }
+                });
+                
+                requestAnimationFrame(draw);
+            }
+            draw();
+        }
     </script>
 </body>
 </html>
