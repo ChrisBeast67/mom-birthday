@@ -226,46 +226,47 @@
 <body>
     <!-- YouTube Player (hidden) -->
     <div id="player" style="display:none;"></div>
+    <!-- YouTube Player (hidden) -->
+    <div id="player" style="display:none;"></div>
     
     <!-- Music Control Button -->
-    <button onclick="toggleMusic()" style="position:fixed;top:20px;right:20px;z-index:1000;background:#ff6b35;border:none;border-radius:50%;width:50px;height:50px;font-size:24px;cursor:pointer;box-shadow:0 4px 15px rgba(0,0,0,0.3);">🎵</button>
+    <button onclick="startMusic()" style="position:fixed;top:20px;right:20px;z-index:1000;background:#ff6b35;border:none;border-radius:50%;width:50px;height:50px;font-size:24px;cursor:pointer;box-shadow:0 4px 15px rgba(0,0,0,0.3);">🎵</button>
     
     <script>
-        var musicPlaying = true;
+        var player;
+        var musicStarted = false;
         
-        function toggleMusic() {
-            if(player && player.getPlayerState() === 1) {
+        function startMusic() {
+            if(!musicStarted) {
+                // YouTube Background Music
+                var tag = document.createElement('script');
+                tag.src = "https://www.youtube.com/iframe_api";
+                var firstScriptTag = document.getElementsByTagName('script')[0];
+                firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+                
+                window.onYouTubeIframeAPIReady = function() {
+                    player = new YT.Player('player', {
+                        height: '0',
+                        width: '0',
+                        videoId: 'i0pzBmuK4jI',
+                        playerVars: {
+                            'autoplay': 1,
+                            'loop': 1,
+                            'playlist': 'i0pzBmuK4jI'
+                        },
+                        events: {
+                            'onReady': function(event) {
+                                event.target.setVolume(50);
+                            }
+                        }
+                    });
+                }
+                musicStarted = true;
+            } else if(player && player.getPlayerState() === 1) {
                 player.pauseVideo();
-                musicPlaying = false;
             } else if(player) {
                 player.playVideo();
-                musicPlaying = true;
             }
-        }
-        
-        // YouTube Background Music
-        var tag = document.createElement('script');
-        tag.src = "https://www.youtube.com/iframe_api";
-        var firstScriptTag = document.getElementsByTagName('script')[0];
-        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-        
-        var player;
-        function onYouTubeIframeAPIReady() {
-            player = new YT.Player('player', {
-                height: '0',
-                width: '0',
-                videoId: 'i0pzBmuK4jI',
-                playerVars: {
-                    'autoplay': 1,
-                    'loop': 1,
-                    'playlist': 'i0pzBmuK4jI'
-                },
-                events: {
-                    'onReady': function(event) {
-                        event.target.setVolume(50);
-                    }
-                }
-            });
         }
     </script>
     <!-- Floating emojis -->
