@@ -231,12 +231,30 @@
     <!-- Music Control Button -->
     <button id="musicBtn" style="position:fixed;top:20px;right:20px;z-index:1000;background:#ff6b35;border:none;border-radius:50%;width:50px;height:50px;font-size:24px;cursor:pointer;box-shadow:0 4px 15px rgba(0,0,0,0.3);">🎵</button>
     
+    <!-- Hidden YouTube Player -->
+    <div id="player" style="position:fixed;top:-1000px;left:-1000px;"></div>
+    
     <script>
+        var player;
         document.getElementById('musicBtn').addEventListener('click', function() {
-            var audio = new Audio('https://www.youtube.com/embed/n4iWaZrRAl8?autoplay=1');
-            audio.play();
-            this.innerHTML = '🔊';
+            if(!player) {
+                player = new YT.Player('player', {
+                    videoId: 'n4iWaZrRAl8',
+                    playerVars: {'autoplay': 1, 'loop': 1, 'playlist': 'n4iWaZrRAl8'},
+                    events: {'onReady': function(e) { e.target.setVolume(50); }}
+                });
+                this.innerHTML = '🔊';
+            } else {
+                player.playVideo();
+                this.innerHTML = '🔊';
+            }
         });
+        
+        // Load YouTube API
+        var tag = document.createElement('script');
+        tag.src = 'https://www.youtube.com/iframe_api';
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
     </script>
     <!-- Floating emojis -->
     <div class="emoji-bg" id="emojiBg"></div>
