@@ -233,10 +233,9 @@
     
     <script>
         document.getElementById('musicBtn').addEventListener('click', function() {
-            window.open('https://www.youtube.com/watch?v=n4iWaZrRAl8', 'music', 'width=400,height=200');
-            this.innerHTML = '✅';
-            this.disabled = true;
-            alert('🎵 Music should be playing in the new window!');
+            var audio = new Audio('https://www.youtube.com/embed/n4iWaZrRAl8?autoplay=1');
+            audio.play();
+            this.innerHTML = '🔊';
         });
     </script>
     <!-- Floating emojis -->
