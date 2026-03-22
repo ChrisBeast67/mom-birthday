@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>管理页面 - Mom Birthday</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background: linear-gradient(135deg, #1a1a2e, #16213e); min-height: 100vh; padding: 20px; color: white; }
+        .container { max-width: 800px; margin: 0 auto; }
+        h1 { text-align: center; margin-bottom: 30px; color: #ffd93d; }
+        .card { background: rgba(255,255,255,0.1); border-radius: 20px; padding: 25px; margin-bottom: 20px; }
+        h2 { color: #6bcb77; margin-bottom: 15px; }
+        .btn { background: #4d96ff; color: white; border: none; padding: 12px 25px; border-radius: 10px; cursor: pointer; font-size: 16px; margin: 5px; }
+        .btn:hover { background: #3a7bd5; }
+        .btn-green { background: #6bcb77; }
+        .btn-red { background: #ff6b6b; }
+        .input { width: 100%; padding: 12px; border-radius: 8px; border: none; margin-bottom: 10px; font-size: 16px; }
+        textarea { width: 100%; padding: 12px; border-radius: 8px; border: none; margin-bottom: 10px; font-size: 14px; min-height: 100px; }
+        .links { display: flex; flex-wrap: wrap; gap: 10px; }
+        .link-card { background: rgba(255,255,255,0.1); padding: 15px; border-radius: 10px; flex: 1 1 200px; }
+        .link-card a { color: #4d96ff; font-size: 18px; text-decoration: none; }
+        .link-card a:hover { text-decoration: underline; }
+        .status { padding: 10px; border-radius: 8px; margin-bottom: 15px; }
+        .status.success { background: #6bcb77; }
+        .status.error { background: #ff6b6b; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎛️ 网站管理</h1>
+        
+        <div class="card">
+            <h2>🌐 网站链接</h2>
+            <div class="links">
+                <div class="link-card">
+                    <a href="https://chrisbeast67.github.io/mom-birthday" target="_blank">🎂 妈妈生日网站</a>
+                </div>
+                <div class="link-card">
+                    <a href="https://chrisbeast67.github.io/percy-website" target="_blank">🎮 游戏网站</a>
+                </div>
+                <div class="link-card">
+                    <a href="https://chrisbeast67.github.io/save-earth" target="_blank">🌍 保护地球网站</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2>📝 快速编辑</h2>
+            <div id="editStatus"></div>
+            <input type="text" id="editTitle" class="input" placeholder="标题">
+            <textarea id="editMessage" placeholder="消息内容"></textarea>
+            <button class="btn" onclick="updateContent()">💾 保存更改</button>
+        </div>
+        
+        <div class="card">
+            <h2>🖼️ 照片管理</h2>
+            <p>当前照片: family1.jpg - family6.jpg</p>
+            <button class="btn" onclick="alert('上传新照片功能开发中...')">➕ 添加照片</button>
+        </div>
+        
+        <div class="card">
+            <h2>🎮 游戏管理</h2>
+            <p>当前游戏: 贪吃蛇, 乒乓球, 打砖块, 赛车</p>
+            <button class="btn" onclick="alert('游戏设置开发中...')">⚙️ 游戏设置</button>
+        </div>
+        
+        <div class="card">
+            <h2>📊 统计</h2>
+            <p>照片数量: 6</p>
+            <p>游戏数量: 4</p>
+            <p>语言: 中文</p>
+        </div>
+    </div>
+    
+    <script>
+        function updateContent() {
+            const title = document.getElementById('editTitle').value;
+            const message = document.getElementById('editMessage').value;
+            const status = document.getElementById('editStatus');
+            
+            if (!title && !message) {
+                status.innerHTML = '<div class="status error">请输入标题或内容！</div>';
+                return;
+            }
+            
+            // 模拟保存
+            status.innerHTML = '<div class="status success">✅ 已保存！(演示模式)</div>';
+            
+            setTimeout(() => {
+                document.getElementById('editTitle').value = '';
+                document.getElementById('editMessage').value = '';
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
