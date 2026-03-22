@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -262,26 +262,26 @@
     <div class="container">
         <!-- Main card -->
         <div class="card">
-            <h1>🎉 Happy Birthday! 🎉</h1>
+            <h1>🎉 祝您生日快乐！ 🎉</h1>
             <div class="name">丁惠</div>
             <div class="cake" onclick="blowCandle()">🎂</div>
             <p class="message">
-                Happy Birthday!<br>
-                May every day be joyful! May all your wishes come true! Good health and happiness!
+                祝您生日快乐！<br>
+                愿您每天都开心快乐！心想事成！健康幸福！
             </p>
-            <button class="wish-btn" onclick="showWishes()">🎁 Make a Wish</button>
+            <button class="wish-btn" onclick="showWishes()">🎁 点击许愿</button>
             <div class="wishes" id="wishes">
-                <div class="wish">💖 May you stay forever young!</div>
-                <div class="wish">💰 May you be wealthy!</div>
-                <div class="wish">🏥 May you be healthy!</div>
-                <div class="wish">🎉 May you be happy every day!</div>
+                <div class="wish">💖 愿您永远年轻！</div>
+                <div class="wish">💰 愿您财源滚滚！</div>
+                <div class="wish">🏥 愿您身体健康！</div>
+                <div class="wish">🎉 愿您天天开心！</div>
             </div>
             <div class="balloons">🎈🎉🎈</div>
         </div>
         
         <!-- Photo Gallery -->
         <div class="card" style="padding:25px;">
-            <h2 style="color:#ff6b35;margin-bottom:20px;font-size:32px;">📸 Beautiful Memories</h2>
+            <h2 style="color:#ff6b35;margin-bottom:20px;font-size:32px;">📸 美好时光</h2>
             <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:15px;max-width:700px;margin:0 auto;">
                 <img src="images/family1.jpg" style="width:200px;height:150px;object-fit:cover;border-radius:15px;box-shadow:0 5px 15px rgba(0,0,0,0.2);transition:transform 0.3s;cursor:pointer;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
                 <img src="images/family2.jpg" style="width:200px;height:150px;object-fit:cover;border-radius:15px;box-shadow:0 5px 15px rgba(0,0,0,0.2);transition:transform 0.3s;cursor:pointer;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
@@ -294,60 +294,60 @@
         
         <!-- Games Section -->
         <div class="game-section">
-            <h2>🎮 Play Games!</h2>
+            <h2>🎮 玩游戏吧!</h2>
             <div class="games-grid">
                 <button class="game-btn" onclick="openGame('snake')">
                     🐍
-                    <p>Snake</p>
+                    <p>贪吃蛇</p>
                 </button>
                 <button class="game-btn" onclick="openGame('pong')">
                     🏓
-                    <p>Pong</p>
+                    <p>乒乓球</p>
                 </button>
                 <button class="game-btn" onclick="openGame('breakout')">
                     🧱
-                    <p>Breakout</p>
+                    <p>打砖块</p>
                 </button>
                 <button class="game-btn" onclick="openGame('racing')">
                     🏎️
-                    <p>Racing</p>
+                    <p>赛车</p>
                 </button>
             </div>
             
-            <!-- Snake Game -->
+            <!-- 贪吃蛇 Game -->
             <div class="game-frame" id="snakeGame">
-                <h3>🐍 Snake</h3>
-                <p>Use arrow keys!</p>
+                <h3>🐍 贪吃蛇</h3>
+                <p>用方向键控制!</p>
                 <canvas id="snakeCanvas" width="350" height="350"></canvas>
-                <p class="score-display">Score: <span id="snakeScore">0</span></p>
-                <button class="close-btn" onclick="closeGame('snake')">Close Game</button>
+                <p class="score-display">分数: <span id="snakeScore">0</span></p>
+                <button class="close-btn" onclick="closeGame('snake')">结束游戏</button>
             </div>
             
-            <!-- Pong Game -->
+            <!-- 乒乓球 Game -->
             <div class="game-frame" id="pongGame">
-                <h3>🏓 Pong</h3>
-                <p>W/S for top, Arrow keys for bottom</p>
+                <h3>🏓 乒乓球</h3>
+                <p>W/S 控制上方, 方向键控制下方</p>
                 <canvas id="pongCanvas" width="350" height="250"></canvas>
-                <p class="score-display">Score: <span id="pongScore1">0</span> - <span id="pongScore2">0</span></p>
-                <button class="close-btn" onclick="closeGame('pong')">Close Game</button>
+                <p class="score-display">分数: <span id="pongScore1">0</span> - <span id="pongScore2">0</span></p>
+                <button class="close-btn" onclick="closeGame('pong')">结束游戏</button>
             </div>
             
-            <!-- Breakout Game -->
+            <!-- 打砖块 Game -->
             <div class="game-frame" id="breakoutGame">
-                <h3>🧱 Breakout</h3>
-                <p>Mouse to control paddle!</p>
+                <h3>🧱 打砖块</h3>
+                <p>鼠标控制挡板!</p>
                 <canvas id="breakoutCanvas" width="350" height="300"></canvas>
-                <p class="score-display">Score: <span id="breakoutScore">0</span></p>
-                <button class="close-btn" onclick="closeGame('breakout')">Close Game</button>
+                <p class="score-display">分数: <span id="breakoutScore">0</span></p>
+                <button class="close-btn" onclick="closeGame('breakout')">结束游戏</button>
             </div>
             
-            <!-- Racing Game -->
+            <!-- 赛车 Game -->
             <div class="game-frame" id="racingGame">
-                <h3>🏎️ Racing</h3>
-                <p>Mouse to move!</p>
+                <h3>🏎️ 赛车</h3>
+                <p>鼠标控制左右!</p>
                 <canvas id="racingCanvas" width="300" height="400"></canvas>
-                <p class="score-display">Score: <span id="racingScore">0</span></p>
-                <button class="close-btn" onclick="closeGame('racing')">Close Game</button>
+                <p class="score-display">分数: <span id="racingScore">0</span></p>
+                <button class="close-btn" onclick="closeGame('racing')">结束游戏</button>
             </div>
         </div>
         
@@ -357,7 +357,7 @@
                 感谢您一直以来的爱和付出！<br>
                 您是最棒的妈妈！
             </p>
-            <p class="from">— Love, Chris ❤️</p>
+            <p class="from">—— 爱您的 Chris ❤️ ❤️</p>
         </div>
         
         <footer>
@@ -396,10 +396,10 @@
             document.querySelectorAll('.game-frame').forEach(g => g.classList.remove('active'));
             document.getElementById(game + 'Game').classList.add('active');
             
-            if(game === 'snake' && !activeGames.snake) startSnake();
-            if(game === 'pong' && !activeGames.pong) startPong();
-            if(game === 'breakout' && !activeGames.breakout) startBreakout();
-            if(game === 'racing' && !activeGames.racing) startRacing();
+            if(game === 'snake' && !activeGames.snake) start贪吃蛇();
+            if(game === 'pong' && !activeGames.pong) start乒乓球();
+            if(game === 'breakout' && !activeGames.breakout) start打砖块();
+            if(game === 'racing' && !activeGames.racing) start赛车();
         }
         
         function closeGame(game) {
@@ -407,9 +407,9 @@
             activeGames[game] = false;
         }
         
-        // Snake Game
+        // 贪吃蛇 Game
         let snakeRunning = false;
-        function startSnake() {
+        function start贪吃蛇() {
             snakeRunning = true;
             activeGames.snake = true;
             const canvas = document.getElementById('snakeCanvas');
@@ -436,7 +436,7 @@
                 ctx.fillStyle = 'red';
                 ctx.fillRect(appleX,appleY,13,13);
                 
-                // Snake
+                // 贪吃蛇
                 ctx.fillStyle = '#00ff00';
                 snake.forEach(s => ctx.fillRect(s.x,s.y,13,13));
                 
@@ -459,9 +459,9 @@
             draw();
         }
         
-        // Pong Game
+        // 乒乓球 Game
         let pongRunning = false;
-        function startPong() {
+        function start乒乓球() {
             pongRunning = true;
             activeGames.pong = true;
             const canvas = document.getElementById('pongCanvas');
@@ -497,9 +497,9 @@
             draw();
         }
         
-        // Breakout Game
+        // 打砖块 Game
         let breakoutRunning = false;
-        function startBreakout() {
+        function start打砖块() {
             breakoutRunning = true;
             activeGames.breakout = true;
             const canvas = document.getElementById('breakoutCanvas');
@@ -544,9 +544,9 @@
             draw();
         }
         
-        // Racing Game
+        // 赛车 Game
         let racingRunning = false;
-        function startRacing() {
+        function start赛车() {
             racingRunning = true;
             activeGames.racing = true;
             const canvas = document.getElementById('racingCanvas');
@@ -578,7 +578,7 @@
                     e.y+=speed;
                     if(e.y>400) {enemies.splice(i,1); score+=10; document.getElementById('racingScore').innerText=score;}
                     if(carX<e.x+30 && carX+40>e.x && e.y+50>340 && e.y<400) {
-                        alert('游戏结束! Score: '+score);
+                        alert('游戏结束! 分数: '+score);
                         enemies=[]; score=0; document.getElementById('racingScore').innerText=0;
                     }
                 });
